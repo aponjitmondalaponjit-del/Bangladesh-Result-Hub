@@ -11,7 +11,7 @@ from telegram.ext import (
 )
 
 # আপনার এনভায়রনমেন্ট ভ্যারিয়েবল থেকে টোকেন সংগ্রহ
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("8710826860:AAG3gALXky9qAUdxF2PWaUtwKEgzwJgZe1U")
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
