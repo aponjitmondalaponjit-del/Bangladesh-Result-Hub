@@ -15,6 +15,8 @@ from telegram.ext import (
 
 TOKEN = os.getenv("BOT_TOKEN")
 
+from referral import register_user, get_user
+
 DATA_FILE = "user_data.json"
 
 def load_users():
@@ -29,6 +31,9 @@ def save_users(users):
         json.dump(users, f, ensure_ascii=False, indent=4)
         
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.effective_user
+    register_user(user.id, user.username)
+
     keyboard = [
         ["📄 View Result"],
         ["👤 My Profile", "👥 My Referrals"],
