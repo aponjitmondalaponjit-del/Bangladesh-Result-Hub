@@ -69,24 +69,7 @@ async def menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "এখনও কোনো রিওয়ার্ড পাওয়া যায়নি।"
         )
 
-    elif text == "📢 Notice":
-        await update.message.reply_text(
-            "📢 Notice\n\n"
-            "বর্তমানে কোনো নতুন নোটিশ নেই।"
-        )
-
-    elif text == "💬 Support":
-        await update.message.reply_text(
-            "💬 Support\n\n"
-            "সহায়তা সিস্টেম শীঘ্রই যুক্ত করা হবে।"
-        )
-
-    else:
-        await update.message.reply_text(
-            "অনুগ্রহ করে নিচের মেনু থেকে একটি অপশন নির্বাচন করুন।"
-        )
-
-
+    
 def main():
     app = Application.builder().token(TOKEN).build()
 
