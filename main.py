@@ -1,4 +1,4 @@
-print ("BRH VERSION 2")
+print("BRH VERSION 2")
 
 import os
 from telegram import Update, ReplyKeyboardMarkup
@@ -69,20 +69,6 @@ async def menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "এখনও কোনো রিওয়ার্ড পাওয়া যায়নি।"
         )
 
-    
-def main():
-    app = Application.builder().token(TOKEN).build()
-
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, menu))
-
-    print("Bangladesh Result Hub (BRH) Started...")
-
-    app.run_polling()
-
-
-if __name__ == "__main__":
-    main()
     elif text == "📢 Notice":
         await update.message.reply_text(
             "📢 Notice\n\n"
