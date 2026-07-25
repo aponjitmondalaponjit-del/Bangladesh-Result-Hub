@@ -1,6 +1,8 @@
 print("BRH VERSION 2")
 
 import os
+import json
+
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import (
     Application,
@@ -12,7 +14,19 @@ from telegram.ext import (
 
 TOKEN = os.getenv("BOT_TOKEN")
 
+DATA_FILE = "user_data.json"
 
+def load_users():
+    try:
+        with open(DATA_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return {}
+
+def save_users(users):
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(users, f, ensure_ascii=False, indent=4)
+        
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         ["📄 View Result"],
