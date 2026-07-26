@@ -1,39 +1,33 @@
-import json
-
-DATA_FILE = "user_data.json"
-
-
-def load_users():
-    try:
-        with open(DATA_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except:
-        return {}
+from database.database import (
+    get_user,
+    add_user,
+    update_user,
+    user_exists,
+)
 
 
-def save_users(users):
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(users, f, ensure_ascii=False, indent=4)
-
-
-def register_user(user_id, username=""):
-    users = load_users()
-
-    user_id = str(user_id)
-
-    if user_id not in users:
-        users[user_id] = {
+def register_user(user_id, username):
+    if not user_exists(user_id):
+        add_user(user_id, {
             "username": username,
             "referrals": 0,
             "points": 0,
-            "reward": 0,
-            "referred_by": None
-        }
-        save_users(users)
-
-    return users[user_id]
+            "reward": 0
+        })
 
 
-def get_user(user_id):
-    users = load_users()
-    return users.get(str(user_id), None)
+def get_user_data(user_id):
+    return get_user(user_id)
+
+
+def add_referral(user_id):
+    user = get_user(user_id)
+
+    if user:
+        user["referrals"] += 1
+        user["points"] += 250
+
+        if user["points"] >= 1500:
+            user["reward"] = user["points"] // 1500
+
+        update_user(user_id, user)
