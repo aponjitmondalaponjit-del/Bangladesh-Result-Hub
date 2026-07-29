@@ -1,28 +1,33 @@
 ADS = [
     {
         "id": 1,
-        "title": "BRH Premium",
-        "type": "image",
-        "file": "premium.jpg",
-        "url": "https://t.me/YourChannel",
-        "duration": 10,
-        "active": True,
-    },
-    {
-        "id": 2,
-        "title": "Your Product",
+        "title": "BRH Sponsor",
         "type": "video",
-        "file": "product.mp4",
-        "url": "https://example.com",
-        "duration": 10,
-        "active": False,
-    },
+        "url": "",
+        "duration": 15,
+        "active": True,
+    }
 ]
 
 
 def get_ads():
-    return ADS
-
-
-def get_active_ads():
     return [ad for ad in ADS if ad["active"]]
+
+
+def get_ad(ad_id):
+    for ad in ADS:
+        if ad["id"] == ad_id:
+            return ad
+
+    return None
+
+
+def add_ad(ad):
+    ADS.append(ad)
+
+
+def disable_ad(ad_id):
+    ad = get_ad(ad_id)
+
+    if ad:
+        ad["active"] = False
