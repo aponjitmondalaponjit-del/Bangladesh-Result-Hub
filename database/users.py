@@ -9,7 +9,6 @@ def create_user(user_id):
     if user_id not in USERS:
         USERS[user_id] = {
             "id": user_id,
-            "language": "বাংলা",
             "premium": False,
             "referrals": 0,
         }
