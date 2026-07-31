@@ -1,15 +1,14 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 
-from profile import get_profile
+from keyboards.profile_menu import profile_menu
 
 
-async def profile_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user = update.effective_user
-
+async def profile_handler(
+    update: Update,
+    context: ContextTypes.DEFAULT_TYPE,
+):
     await update.message.reply_text(
-        get_profile(
-            user.id,
-            user.username
-        )
+        "👤 Profile Menu",
+        reply_markup=profile_menu(),
     )
