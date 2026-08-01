@@ -85,3 +85,82 @@ BOARD_MAP = {
     "technical": "TECHNICAL",
     "কারিগরি": "TECHNICAL",
 }
+
+def normalize_board(board: str) -> str:
+    """
+    Convert any board name into BRH standard format.
+    """
+
+    if board is None:
+        return ""
+
+    board = str(board).strip()
+
+    return BOARD_MAP.get(board, board.upper())
+
+
+def is_supported_board(board: str) -> bool:
+    """
+    Check board support.
+    """
+
+    return normalize_board(board) in {
+        "DHAKA",
+        "RAJSHAHI",
+        "JESSORE",
+        "KHULNA",
+        "CHITTAGONG",
+        "COMILLA",
+        "BARISAL",
+        "SYLHET",
+        "DINAJPUR",
+        "MYMENSINGH",
+        "MADRASA",
+        "TECHNICAL",
+    }
+
+
+def get_all_boards() -> list[str]:
+    """
+    Return supported board list.
+    """
+
+    return [
+        "DHAKA",
+        "RAJSHAHI",
+        "JESSORE",
+        "KHULNA",
+        "CHITTAGONG",
+        "COMILLA",
+        "BARISAL",
+        "SYLHET",
+        "DINAJPUR",
+        "MYMENSINGH",
+        "MADRASA",
+        "TECHNICAL",
+    ]
+
+
+def display_name(board: str) -> str:
+    """
+    User friendly board name.
+    """
+
+    board = normalize_board(board)
+
+    names = {
+        "DHAKA": "Dhaka",
+        "RAJSHAHI": "Rajshahi",
+        "JESSORE": "Jessore",
+        "KHULNA": "Khulna",
+        "CHITTAGONG": "Chittagong",
+        "COMILLA": "Comilla",
+        "BARISAL": "Barisal",
+        "SYLHET": "Sylhet",
+        "DINAJPUR": "Dinajpur",
+        "MYMENSINGH": "Mymensingh",
+        "MADRASA": "Madrasa",
+        "TECHNICAL": "Technical",
+    }
+
+    return names.get(board, board.title())
