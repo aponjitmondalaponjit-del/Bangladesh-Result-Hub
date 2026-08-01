@@ -48,7 +48,9 @@ BOARD_MAP = {
     "Comilla": "COMILLA",
     "comilla": "COMILLA",
     "কুমিল্লা": "COMILLA",
-
+    "Cumilla": "COMILLA",
+    "cumilla": "COMILLA",
+    
     # Barisal
     "BARISAL": "BARISAL",
     "Barisal": "BARISAL",
@@ -94,7 +96,7 @@ def normalize_board(board: str) -> str:
     if board is None:
         return ""
 
-    board = str(board).strip()
+    board = " ".join(str(board).split())
 
     return BOARD_MAP.get(board, board.upper())
 
