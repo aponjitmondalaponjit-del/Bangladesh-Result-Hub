@@ -3,8 +3,7 @@ from telegram.ext import ContextTypes
 
 from keyboards.main_menu import main_menu
 
-
-async def start(
+async def start_handler(
     update: Update,
     context: ContextTypes.DEFAULT_TYPE,
 ):
