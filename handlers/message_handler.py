@@ -32,6 +32,8 @@ async def message_handler(
     text = update.message.text or ""
     text = " ".join(text.split())
 
+    print(text)
+    
     if text == "📚 Result":
         await update.message.reply_text(
             "📚 একটি পরীক্ষা নির্বাচন করুন।",
