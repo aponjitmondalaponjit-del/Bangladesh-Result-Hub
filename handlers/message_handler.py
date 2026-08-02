@@ -29,7 +29,8 @@ async def message_handler(
     Handle Main Menu buttons.
     """
 
-    text = update.message.text
+    text = update.message.text or ""
+    text = " ".join(text.split())
 
     if text == "📚 Result":
         await update.message.reply_text(
