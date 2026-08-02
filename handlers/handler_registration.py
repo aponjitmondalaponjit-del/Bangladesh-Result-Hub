@@ -16,9 +16,12 @@ Responsibilities:
 from telegram.ext import (
     Application,
     CommandHandler,
+    MessageHandler,
+    filters,
 )
 
 from handlers.start_handler import start_handler
+from handlers.message_handler import message_handler
 
 
 def register_handlers(app: Application) -> None:
@@ -26,10 +29,24 @@ def register_handlers(app: Application) -> None:
     Register all handlers.
     """
 
-    # Start Command
+    # ==========================================
+    # Commands
+    # ==========================================
+
     app.add_handler(
         CommandHandler(
             "start",
             start_handler,
+        )
+    )
+
+    # ==========================================
+    # Main Menu Buttons
+    # ==========================================
+
+    app.add_handler(
+        MessageHandler(
+            filters.TEXT & ~filters.COMMAND,
+            message_handler,
         )
     )
