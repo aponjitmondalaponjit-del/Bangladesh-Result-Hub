@@ -1,5 +1,25 @@
+"""
+==========================================================
+Bangladesh Result Hub (BRH)
+
+Profile Menu Keyboard
+
+Version : 1.0.0
+
+Responsibilities:
+- Show Profile Menu
+==========================================================
+"""
+
+from telegram import ReplyKeyboardMarkup
+
+
 def profile_menu():
-    return [
+    """
+    Profile Menu Keyboard
+    """
+
+    keyboard = [
         ["👤 আমার প্রোফাইল"],
         ["📄 Save My Roll"],
         ["👥 Referral"],
@@ -7,3 +27,8 @@ def profile_menu():
         ["💎 Premium"],
         ["🔙 Main Menu"],
     ]
+
+    return ReplyKeyboardMarkup(
+        keyboard,
+        resize_keyboard=True,
+    )
