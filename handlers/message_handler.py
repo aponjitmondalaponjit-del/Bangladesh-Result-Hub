@@ -64,19 +64,16 @@ async def message_handler(
 
     elif text == "📢 Notice":
         await update.message.reply_text(
-            "📢 No Notice Available."
+            "কার্যক্রম চলছে"
         )
 
-    elif text == "🛒 Products":
-        await update.message.reply_text(
-            "🛒 Products\nComing Soon..."
-        )
 
     elif text == "🆘 Support":
         await update.message.reply_text(
             "🆘 Support\nComing Soon..."
         )
 
+    
     else:
         await update.message.reply_text(
             "অনুগ্রহ করে নিচের মেনু ব্যবহার করুন।",
