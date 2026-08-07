@@ -1,19 +1,14 @@
-from telegram import KeyboardButton, ReplyKeyboardMarkup
+from telegram import ReplyKeyboardMarkup
 
 
 def main_menu():
     keyboard = [
-        [
-            KeyboardButton("📚 Result"),
-            KeyboardButton("👤 Profile"),
-        ],
-        [
-            KeyboardButton("🎁 Referral"),
-            KeyboardButton("📢 Notice"),
-        ],
+        ["📚 Result", "👤 Profile"],
+        ["🎁 Referral", "📢 Notice"],
     ]
 
     return ReplyKeyboardMarkup(
         keyboard,
         resize_keyboard=True,
+        is_persistent=True,
     )
