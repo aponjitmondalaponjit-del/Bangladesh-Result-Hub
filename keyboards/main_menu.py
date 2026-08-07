@@ -6,10 +6,10 @@ def main_menu():
         ["📚 Result", "👤 Profile"],
         ["🎁 Referral", "💎 Premium"],
         ["⚙️ Settings", "📢 Notice"],
-        ["🛒 Products", "🆘 Support"],
+        ["🆘 Support"],
     ]
 
     return ReplyKeyboardMarkup(
         keyboard,
-        resize_keyboard=True
+        resize_keyboard=True,
     )
