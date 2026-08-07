@@ -40,42 +40,18 @@ async def message_handler(
             reply_markup=result_menu(),
         )
 
-    elif text == "👤 Profile":
-        await update.message.reply_text(
-            "👤 Profile Menu",
-            reply_markup=profile_menu(),
-        )
+elif text == "⚙️ Settings":
+    await update.message.reply_text(
+        "⚙️ Settings",
+        reply_markup=settings_menu(),
+    )
 
-    elif text == "⚙️ Settings":
-        await update.message.reply_text(
-            "⚙️ Settings",
-            reply_markup=settings_menu(),
-        )
+elif text == "🆘 Support":
+    await update.message.reply_text(
+        "🆘 Support\nComing Soon..."
+    )
 
-    elif text == "🎁 Referral":
-        await update.message.reply_text(
-            "🎁 Referral System\nComing Soon..."
-        )
-
-    elif text == "💎 Premium":
-        await update.message.reply_text(
-            "💎 Premium System\nComing Soon..."
-        )
-
-    elif text == "📢 Notice":
-        await update.message.reply_text(
-            "কার্যক্রম চলছে"
-        )
-
-
-    elif text == "🆘 Support":
-        await update.message.reply_text(
-            "🆘 Support\nComing Soon..."
-        )
-
-    
-    else:
-        await update.message.reply_text(
-            "অনুগ্রহ করে নিচের মেনু ব্যবহার করুন।",
-            reply_markup=main_menu(),
-        )
+elif text == "💎 Premium":
+    await update.message.reply_text(
+        "💎 Premium\nComing Soon..."
+    )
