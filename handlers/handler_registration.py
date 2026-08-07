@@ -8,8 +8,8 @@ Version : 1.0.0
 
 Responsibilities:
 - Register all bot handlers
-- Connect commands
-- Connect message handlers
+- Commands
+- Main Menu
 ==========================================================
 """
 
@@ -23,15 +23,19 @@ from telegram.ext import (
 from handlers.start_handler import start_handler
 from handlers.message_handler import message_handler
 
+from handlers.settings_handler import settings_handler
+from handlers.support_handler import support_handler
+from handlers.premium_handler import premium_handler
 
-def register_handlers(app: Application) -> None:
+
+def register_handlers(app: Application):
     """
     Register all handlers.
     """
 
-    # ==========================================
+    # ==========================
     # Commands
-    # ==========================================
+    # ==========================
 
     app.add_handler(
         CommandHandler(
@@ -40,9 +44,30 @@ def register_handlers(app: Application) -> None:
         )
     )
 
-    # ==========================================
-    # Main Menu Buttons
-    # ==========================================
+    app.add_handler(
+        CommandHandler(
+            "settings",
+            settings_handler,
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "support",
+            support_handler,
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "premium",
+            premium_handler,
+        )
+    )
+
+    # ==========================
+    # Text Buttons
+    # ==========================
 
     app.add_handler(
         MessageHandler(
